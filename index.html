@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>TeenHQ — real talk, real tools</title>
+<meta name="description" content="Advice on school, friends, dating, family, and growing up — plus mood, journal, water, sleep, habits, goals, budget, and fun stuff. Installable as an app.">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#7A2E52">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TeenHQ">
+
+<script>
+  (function(){
+    try{
+      var saved = localStorage.getItem('teenhq-theme');
+      var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    }catch(e){}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <button class="logo" onclick="nav('advice')">Teen<span class="hq">HQ</span></button>
+
+    <nav class="main-nav" aria-label="Primary">
+      <button class="nav-link" data-section="advice" onclick="nav('advice')">Advice</button>
+      <div class="explore-wrap">
+        <button class="nav-link" id="explore-btn" onclick="toggleExplore(event)">Explore ▾</button>
+        <div class="explore-panel" id="explore-panel">
+          <button class="explore-item" onclick="nav('mood')"><span class="emoji">😊</span> Mood</button>
+          <button class="explore-item" onclick="nav('journal')"><span class="emoji">📓</span> Journal</button>
+          <button class="explore-item" onclick="nav('water')"><span class="emoji">💧</span> Water</button>
+          <button class="explore-item" onclick="nav('sleep')"><span class="emoji">😴</span> Sleep</button>
+          <button class="explore-item" onclick="nav('study')"><span class="emoji">📚</span> Study Hub</button>
+          <button class="explore-item" onclick="nav('habits')"><span class="emoji">🌱</span> Habits</button>
+          <button class="explore-item" onclick="nav('goals')"><span class="emoji">🎯</span> Goals</button>
+          <button class="explore-item" onclick="nav('budget')"><span class="emoji">💸</span> Budget</button>
+          <button class="explore-item" onclick="nav('fun')" style="grid-column:1/-1;"><span class="emoji">🎲</span> Fun Stuff</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+      <button class="icon-btn hamburger" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="nav-link" data-section="advice" onclick="nav('advice')">💌 Advice</button>
+    <div class="mobile-section-label">Explore</div>
+    <button class="explore-item" onclick="nav('mood')">😊 Mood</button>
+    <button class="explore-item" onclick="nav('journal')">📓 Journal</button>
+    <button class="explore-item" onclick="nav('water')">💧 Water</button>
+    <button class="explore-item" onclick="nav('sleep')">😴 Sleep</button>
+    <button class="explore-item" onclick="nav('study')">📚 Study Hub</button>
+    <button class="explore-item" onclick="nav('habits')">🌱 Habits</button>
+    <button class="explore-item" onclick="nav('goals')">🎯 Goals</button>
+    <button class="explore-item" onclick="nav('budget')">💸 Budget</button>
+    <button class="explore-item" onclick="nav('fun')">🎲 Fun Stuff</button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">TeenHQ — a little advice library (and toolkit), made with an internet big sister's whole heart.</div>
+</footer>
+
+<div class="install-banner" id="install-banner">
+  <span>Install TeenHQ on your phone?</span>
+  <button class="install-yes" onclick="installApp()">Install</button>
+  <button class="install-no" onclick="dismissInstall()">Not now</button>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

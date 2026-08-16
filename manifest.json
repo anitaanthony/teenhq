@@ -1,0 +1,17 @@
+{
+  "name": "TeenHQ — Advice, Journal & More",
+  "short_name": "TeenHQ",
+  "description": "Real talk on school, friends, dating, family, and growing up — plus mood, journal, water, sleep, habits, goals, budget, and fun stuff.",
+  "start_url": "./index.html#/advice",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FBF6FA",
+  "theme_color": "#7A2E52",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
